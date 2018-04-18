@@ -6,7 +6,7 @@ The easiest way to get started is to create a new (empty) RStudio project, then
 
 ```r
 devtools::install_github('rstudio/blogdown')  # install blogdown
-blogdown::new_site(theme = 'yihui/hugo-lithium-theme')
+blogdown::new_site(theme = 'yihui/hugo-lithium')
 ```
 
 Then you should be able to see an example website launched in the RStudio Viewer.
