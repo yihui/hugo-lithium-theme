@@ -4,6 +4,9 @@
 
   {{ if .Content }}
   <article class="article">
+    {{ if .Title }}
+    <h1 class="article-title">{{ .Title }}</h1>
+    {{ end }}
     <div class="article-content">
       {{ .Content }}
     </div>
