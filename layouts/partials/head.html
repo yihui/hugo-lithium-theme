@@ -1,8 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{{ .Hugo.Generator }}
+{{ hugo.Generator }}
 
-{{ if eq .URL "/" }}
+{{ if eq .RelPermalink "/" }}
 <title>{{ .Site.Title }}</title>
 <meta property="og:title" content="{{ .Site.Title }}">
 <meta property="og:type" content="website">
@@ -14,7 +14,7 @@
   <link href='{{ . | absURL }}' rel='icon' type='image/x-icon'/>
 {{ end }}
 
-{{ if eq .URL "/" }}
+{{ if eq .RelPermalink "/" }}
 <meta property="description" content="{{ .Site.Params.description }}">
 {{ else }}
   {{ if .Description }}
@@ -26,8 +26,8 @@
 <meta property="keywords" content ="{{ delimit .Keywords ", " }}">
 {{ end }}
 
-{{ if .RSSLink }}
-<link href="{{ .RSSLink | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+{{ with .OutputFormats.Get "RSS" }}
+<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
 {{ end }}
 {{ partial "head_highlightjs" . }}
 <link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}" media="all">
