@@ -13,7 +13,11 @@
   </article>
   {{ end }}
   <div class="archive">
-    {{ range (where .Data.Pages "Section" "!=" "").GroupByDate "2006" }}
+    {{ $pages := .Pages }}
+    {{ if .IsHome }}
+    {{ $pages = .Site.RegularPages }}
+    {{ end }}
+    {{ range (where $pages "Section" "!=" "").GroupByDate "2006" }}
     <h2 class="archive-title">{{ .Key }}</h2>
     {{ range .Pages }}
     <article class="archive-item">
