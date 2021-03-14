@@ -29,6 +29,11 @@ code {
   background-color: rgba(0, 0, 0, 0.02);
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .wrapper {
   overflow: hidden;
   position: relative;
